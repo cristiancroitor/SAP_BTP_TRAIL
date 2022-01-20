@@ -1,0 +1,5 @@
+CLASS zbp_cc_git_rs_bhv_so DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zcc_git_rs_bhv_so.
+ENDCLASS.
+
+CLASS zbp_cc_git_rs_bhv_so IMPLEMENTATION.
+ENDCLASS.

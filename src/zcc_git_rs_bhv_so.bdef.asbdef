@@ -1,0 +1,30 @@
+managed implementation in class zbp_cc_git_rs_bhv_so unique;
+//strict; //Comment this line in to enable strict mode. The strict mode is prerequisite to be future proof regarding syntax and to be able to release your BO.
+
+define behavior for ZCC_GIT_RS_BHV_SO //alias <alias_name>
+persistent table SADL_RS_SO_ROOT
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+
+  field ( readonly ) id;
+  field ( readonly ) act_indicator;
+
+  association _Items { create; }
+}
+
+define behavior for ZCC_GIT_RS_BHV_ITEM //alias <alias_name>
+persistent table SADL_RS_SO_ITEMS
+lock dependent by _SalesOrder
+authorization dependent by _SalesOrder
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) parent_id;
+  association _SalesOrder;
+}
